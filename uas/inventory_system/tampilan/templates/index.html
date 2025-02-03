@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Inventory System</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Font Awesome untuk ikon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+      body {
+        background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      }
+      .jumbotron {
+        background: url("https://source.unsplash.com/1600x900/?inventory")
+          no-repeat center center;
+        background-size: cover;
+        color: white;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        margin-bottom: 0;
+      }
+      .jumbotron .container {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 2rem;
+        border-radius: 8px;
+      }
+      footer {
+        background-color: #343a40;
+        color: #fff;
+        padding: 1rem 0;
+      }
+      .card {
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="{% url 'home' %}"
+        ><i class="fas fa-warehouse"></i> Inventory System</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+          <a class="nav-link" href="{% url 'product_list' %}"
+            ><i class="fas fa-store"></i> Store</a
+          >
+          <a class="nav-link" href="{% url 'order_list' %}"
+            ><i class="fas fa-truck"></i> Supplier</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Jumbotron Header -->
+    <div class="jumbotron jumbotron-fluid mb-0">
+      <div class="container text-center">
+        <h1 class="display-4">Selamat Datang di Inventory System</h1>
+        <p class="lead">
+          Kelola produk, stok, dan pengiriman dengan mudah dan efisien.
+        </p>
+        <a href="{% url 'product_list' %}" class="btn btn-primary btn-lg mr-2">
+          <i class="fas fa-boxes"></i> Kelola Produk
+        </a>
+        <a href="{% url 'order_list' %}" class="btn btn-success btn-lg">
+          <i class="fas fa-shipping-fast"></i> Pantau Pengiriman
+        </a>
+      </div>
+    </div>
+
+    <!-- Konten Utama -->
+    <div class="container my-5">
+      <div class="row">
+        <!-- Card Store -->
+        <div class="col-md-6 mb-4">
+          <div class="card h-100">
+            <img
+              src="https://source.unsplash.com/800x400/?store"
+              class="card-img-top"
+              alt="Store"
+            />
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-store"></i> Store</h5>
+              <p class="card-text">
+                Kelola produk, stok, dan lakukan pemesanan restock dengan sistem
+                yang terintegrasi dan mudah digunakan.
+              </p>
+              <a href="{% url 'product_list' %}" class="btn btn-primary">
+                Masuk ke Store
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Supplier -->
+        <div class="col-md-6 mb-4">
+          <div class="card h-100">
+            <img
+              src="https://source.unsplash.com/800x400/?supplier,delivery"
+              class="card-img-top"
+              alt="Supplier"
+            />
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-truck"></i> Supplier</h5>
+              <p class="card-text">
+                Lihat pesanan restock, update status pengiriman, dan pantau
+                pengiriman barang secara real-time.
+              </p>
+              <a href="{% url 'order_list' %}" class="btn btn-success">
+                Masuk ke Supplier
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+      <div class="container">
+        <p>&copy; 2025 Toko Online. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap dan jQuery JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>

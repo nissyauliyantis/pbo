@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Laporan Stok</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h2>Laporan Stok Produk (Stok Hampir Habis)</h2>
+      {% if products %}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Nama Produk</th>
+            <th>Stok</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in products %}
+          <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.stock }}</td>
+            <td>
+              <a
+                href="{% url 'order_product' product.pk %}"
+                class="btn btn-sm btn-warning"
+                >Pesan Produk</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>Tidak ada produk dengan stok hampir habis.</p>
+      {% endif %}
+      <a href="{% url 'product_list' %}" class="btn btn-secondary"
+        >Kembali ke Daftar Produk</a
+      >
+    </div>
+  </body>
+</html>

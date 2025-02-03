@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hapus Produk</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h2>Hapus Produk</h2>
+      <p>
+        Apakah Anda yakin ingin menghapus produk
+        <strong>{{ product.name }}</strong>?
+      </p>
+      <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Ya, hapus</button>
+        <a href="{% url 'product_list' %}" class="btn btn-secondary">Batal</a>
+      </form>
+    </div>
+  </body>
+</html>

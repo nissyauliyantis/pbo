@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pesan Produk: {{ product.name }}</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h2>Pesan Produk: {{ product.name }}</h2>
+      <p>Harga: {{ product.price }} | Stok saat ini: {{ product.stock }}</p>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Kirim Pesanan</button>
+        <a href="{% url 'product_list' %}" class="btn btn-secondary">Batal</a>
+      </form>
+    </div>
+  </body>
+</html>

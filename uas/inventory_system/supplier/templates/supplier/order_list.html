@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Daftar Pesanan Restock</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-4">
+      <h2>Daftar Pesanan Restock (Belum Terpenuhi)</h2>
+      {% if orders %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID Pesanan</th>
+            <th>Produk</th>
+            <th>Jumlah Pesanan</th>
+            <th>Tanggal Pesan</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in orders %}
+          <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.product.name }}</td>
+            <td>{{ order.quantity }}</td>
+            <td>{{ order.order_date|date:"d M Y H:i" }}</td>
+            <td>
+              <a
+                href="{% url 'delivery_update' order.id %}"
+                class="btn btn-sm btn-info"
+                >Update Pengiriman</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>Tidak ada pesanan yang harus diproses.</p>
+      {% endif %}
+      <a href="{% url 'admin:index' %}" class="btn btn-secondary"
+        >Kembali ke Admin</a
+      >
+    </div>
+  </body>
+</html>
